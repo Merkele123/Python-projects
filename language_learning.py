@@ -1,6 +1,7 @@
-import random
-import time
+import random  # Importing random to shuffle and select random words for the quiz
+import time  # Importing time to measure how long the user takes to complete the quiz
 
+# List of words with their English and Estonian translations
 words = [
     {"English": "house", "Estonian": "maja"},
     {"English": "car", "Estonian": "auto"},
@@ -98,34 +99,45 @@ words = [
 ]
 
 
-def quiz_user(words):
-    selected_words = random.sample(words, 5)
-    score = 0
-    
-    for word in selected_words:
-        time_start = time.time()
-        print(f"What is the English translation of '{word['Estonian']}?")
-        user_answer = input("Your answer: ").strip().lower()
-        correct_answer = word["English"].lower()
 
-        if user_answer == correct_answer:
+def quiz_user(words):
+    """
+    Function to quiz the user with random Estonian words
+    and ask for their English translations.
+    """
+    selected_words = random.sample(words, 5)  # Select 5 random words for the quiz
+    score = 0  # Initialize the user's score to zero
+    
+    for word in selected_words:  # Loop through each randomly selected word
+        time_start = time.time()  # Start the timer for the quiz
+        print(f"What is the English translation of '{word['Estonian']}'?")  # Show the Estonian word
+        user_answer = input("Your answer: ").strip().lower()  # Get user's answer and normalize it to lowercase
+        correct_answer = word["English"].lower()  # Normalize the correct answer to lowercase for comparison
+
+        if user_answer == correct_answer:  # Check if the user's answer is correct
             print("Correct\n")
-            score += 1
+            score += 1  # Increment the score for a correct answer
         else:
+            # Inform the user of the correct answer if they were wrong
             print(f"Wrong, you idiot! The correct answer is {word['English']}\n")
-    end_time = time.time()
-    total_time = round(end_time - time_start, 2) 
+
+    end_time = time.time()  # Stop the timer when the quiz is over
+    total_time = round(end_time - time_start, 2)  # Calculate total time taken and round to 2 decimal places
+
+    # Display the user's final score and time taken
     print(f"Quiz is over!! Your score is: {score} / {len(selected_words)}")
-    print(f"It took you : {total_time} seconds")
+    print(f"It took you: {total_time} seconds")
 
 
 def main():
-    print("Welcome to the language learning app")
-    input("Press ENTER to start the program...")
-    quiz_user(words)
+    """
+    Main function to welcome the user and start the quiz.
+    """
+    print("Welcome to the language learning app")  # Welcome message
+    input("Press ENTER to start the program...")  # Wait for the user to press Enter before starting
+    quiz_user(words)  # Call the quiz_user function to start the quiz
 
 
+# Entry point of the program
 if __name__ == "__main__":
-    main()
-
-
+    main()  # Call the main function to start the app
