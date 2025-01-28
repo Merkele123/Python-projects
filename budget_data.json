@@ -1,0 +1,21 @@
+{
+    "initial_budget": 1000.0,
+    "expenses": [
+        {
+            "description": "apple",
+            "amount": 12.0
+        },
+        {
+            "description": "pear",
+            "amount": 15.0
+        },
+        {
+            "description": "book",
+            "amount": 15.0
+        },
+        {
+            "description": "shoes",
+            "amount": 200.0
+        }
+    ]
+}
