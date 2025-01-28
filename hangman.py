@@ -1,64 +1,38 @@
 import random
 
-# Список возможных слов для игры
+# List of possible words for the game
 words = ["apple", "window", "forest", "pencil", "journey", "coffee", "island", "garden", "rainbow", "mountain"]
 
-# Выбираем случайное слово из списка
+# Choose a random word from the list
 chosen_word = random.choice(words)
 
-# Создаем список, который будет показывать подчеркивания для каждой буквы в выбранном слове
+# Create a list that will display underscores for each letter in the chosen word
 word_display = ['_' for _ in chosen_word]
 
-# Количество попыток
+# Number of attempts
 attempts = 8
 
-print("Welcome to Hangman!")  # Приветственное сообщение
+print("Welcome to Hangman!")  # Welcome message
 
-# Пока игроки не исчерпали все попытки и в слове есть подчеркивания
+# While the player has attempts remaining and there are underscores in the word
 while attempts > 0 and '_' in word_display:
-    print("\n" + ' '.join(word_display))  # Показываем текущее состояние слова
-    guess = input("Guess a letter: ").lower()  # Запрос ввода буквы и приведение к нижнему регистру
+    print("\n" + ' '.join(word_display))  # Display the current state of the word
+    guess = input("Guess a letter: ").lower()  # Request a letter input and convert to lowercase
     
-    # Проверяем, если буква есть в слове
+    # Check if the guessed letter is in the word
     if guess in chosen_word:
         for index, letter in enumerate(chosen_word):
             if letter == guess:
-                word_display[index] = guess  # Разгадываем букву
+                word_display[index] = guess  # Reveal the guessed letter
     else:
-        attempts -= 1  # Уменьшаем количество попыток
+        attempts -= 1  # Decrease the number of attempts
         print(f"That's a wrong letter! Try again! You have {attempts} attempts left.")
 
-# После завершения цикла, проверяем, было ли найдено слово
+# After the loop ends, check if the word was guessed
 if '_' not in word_display:
     print("You guessed the word!") 
-    print(' '.join(word_display))  # Показываем полностью разгаданное слово
+    print(' '.join(word_display))  # Display the fully guessed word
     print("You survived!")
 else:
-    print(f"You ran out of attempts. The word was: {chosen_word}")  # Сообщаем игроку, что он проиграл
+    print(f"You ran out of attempts. The word was: {chosen_word}")  # Inform the player they lost
     print("You died!")
-
-
-
-# # List of possible words for the game
-# words = ["apple", "window", "forest", "pencil", "journey", "coffee", "island", "garden", "rainbow", "mountain"]
-
-# chosen_word = random.choice(words)  # Choose a random word
-# word_display = ['_'] * len(chosen_word)  # Display underscores for each letter in the word
-# attempts = 8  # Number of attempts
-
-# print("Welcome to Hangman!")
-
-# while attempts > 0 and '_' in word_display:
-#     print("\n" + ' '.join(word_display))  # Display current word state
-#     guess = input("Guess a letter: ").lower()  # Get input and convert to lowercase
-    
-#     if guess in chosen_word:
-#         word_display = [guess if chosen_word[i] == guess else word_display[i] for i in range(len(chosen_word))]
-#     else:
-#         attempts -= 1
-#         print(f"Wrong guess! You have {attempts} attempts left.")
-
-# if '_' not in word_display:
-#     print(f"Congratulations! The word was: {chosen_word}. You survived!")
-# else:
-#     print(f"Game Over! The word was: {chosen_word}. You ran out of attempts.")
