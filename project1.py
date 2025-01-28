@@ -1,57 +1,58 @@
-import random
+import random  # Import the random module for dice rolls
 
-# Функция для симуляции броска кубика
+# Function to simulate a dice roll
 def roll():
-    min_value = 1  # Минимальное значение на кубике
-    max_value = 6  # Максимальное значение на кубике
-    roll = random.randint(min_value, max_value)  # Генерация случайного числа от 1 до 6
-    return roll  # Возвращаем результат броска
+    min_value = 1  # Minimum value on the dice
+    max_value = 6  # Maximum value on the dice
+    roll = random.randint(min_value, max_value)  # Generate a random number between 1 and 6
+    return roll  # Return the result of the roll
 
-# Бесконечный цикл для получения корректного количества игроков
+# Infinite loop to get a valid number of players
 while True:
-    players = input("Enter the number of players( 2 - 4 ): ")  # Запрашиваем количество игроков
-    if players.isdigit():  # Проверяем, является ли ввод числом
-        players = int(players)  # Преобразуем ввод в целое число
-        if 2 <= players <= 4:  # Проверяем, что количество игроков в диапазоне от 2 до 4
-            break  # Выходим из цикла, если условия выполнены
+    players = input("Enter the number of players (2 - 4): ")  # Ask for the number of players
+    if players.isdigit():  # Check if the input is a number
+        players = int(players)  # Convert input to an integer
+        if 2 <= players <= 4:  # Check if the number of players is between 2 and 4
+            break  # Exit the loop if the conditions are met
         else:
-            print("Must be between (2 - 4)")  # Сообщаем о некорректном вводе
+            print("Must be between (2 - 4)")  # Notify the user of invalid input
     else:
-        print("Invalid number of players, try again:")  # Сообщаем о некорректном вводе
+        print("Invalid number of players, try again:")  # Notify the user of invalid input
 
-max_score = 50  # Максимальное количество очков для победы
-player_scores = [0 for _ in range(players)]  # Список для хранения очков всех игроков
+max_score = 50  # Maximum score required to win the game
+player_scores = [0 for _ in range(players)]  # List to store the scores of all players
 
-# Основной игровой цикл
-while max(player_scores) < max_score:  # Игра продолжается, пока никто не достиг максимального количества очков
-    for player_index in range(players):  # Проходим по всем игрокам
-        print(f"\nPlayer: {player_index + 1} turn has just started!\n")  # Уведомляем о начале хода игрока
-        print(f"Your total score is {player_scores[player_index]}")  # Выводим текущий общий счет игрока
-        current_score = 0  # Счет за текущий ход
+# Main game loop
+while max(player_scores) < max_score:  # Continue the game until someone reaches the max score
+    for player_index in range(players):  # Loop through all players
+        print(f"\nPlayer: {player_index + 1} turn has just started!\n")  # Notify the start of the player's turn
+        print(f"Your total score is {player_scores[player_index]}")  # Display the player's current total score
+        current_score = 0  # Initialize the current turn's score
 
-        # Цикл для выполнения бросков текущего игрока
+        # Loop for rolling the dice during the player's turn
         while True:
-            should_roll = input("Would you like to take a roll? Press 'y' ")  # Запрос на бросок кубика
-            if should_roll.lower() != "y":  # Если игрок отказывается бросать
-                current_score = 0  # Счет за ход обнуляется
-                break  # Выход из цикла бросков
+            should_roll = input("Would you like to take a roll? Press 'y' ")  # Ask if the player wants to roll
+            if should_roll.lower() != "y":  # If the player doesn't want to roll
+                current_score = 0  # Reset the current turn's score to 0
+                break  # Exit the rolling loop
 
-            value = roll()  # Бросок кубика
-            if value == 1:  # Если выпадает 1
-                print("you rolled a 1. Turn done")  # Сообщаем, что ход завершен
-                break  # Выход из цикла бросков
+            value = roll()  # Roll the dice
+            if value == 1:  # If the roll result is 1
+                print("You rolled a 1. Turn done")  # Notify that the turn is over
+                break  # Exit the rolling loop
             else:
-                current_score += value  # Добавляем выпавшее значение к счету за ход
-                print(f"You rolled a: {value}")  # Сообщаем о значении броска
-            print(f"Your current score is: {current_score}")  # Выводим текущий счет за ход
+                current_score += value  # Add the roll result to the current turn's score
+                print(f"You rolled a: {value}")  # Display the roll result
+            print(f"Your current score is: {current_score}")  # Display the current turn's score
 
-        player_scores[player_index] += current_score  # Добавляем счет за ход к общему счету игрока
-        print(f"Your total score is: {player_scores[player_index]}")  # Выводим общий счет игрока
+        # Add the current turn's score to the player's total score
+        player_scores[player_index] += current_score
+        print(f"Your total score is: {player_scores[player_index]}")  # Display the player's total score
 
-# После завершения игры определяем победителя
-max_score = max(player_scores)  # Определяем максимальный счет среди всех игроков
-winning_idx = player_scores.index(max_score)  # Находим индекс игрока с максимальным счетом
-print(f"Player number {winning_idx + 1} is winning with the score of: {max_score}")  # Сообщаем о победителе
+# After the game ends, determine the winner
+max_score = max(player_scores)  # Find the highest score among all players
+winning_idx = player_scores.index(max_score)  # Find the index of the player with the highest score
+print(f"Player number {winning_idx + 1} is winning with the score of: {max_score}")  # Announce the winner
 
 
 # def roll():
