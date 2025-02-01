@@ -1,128 +1,150 @@
-n = int(input())  # Запрашивает у пользователя целое число и сохраняет его в переменную `n`
-i = 1  # Инициализирует переменную-счетчик `i` значением 1
-while i <= n:  # Цикл выполняется, пока `i` меньше или равно `n`
-    print("hello")  # Выводит "hello" на экран
-    i = i + 1  # Увеличивает значение `i` на 1 в каждой итерации
+# Program 1: Prints "hello" n times
+n = int(input())  # Requests an integer from the user and stores it in `n`
+i = 1  # Initializes a counter variable `i` with a value of 1
 
-i = 20  # Устанавливает значение переменной `i` равным 20
-while i >= 1:  # Цикл выполняется, пока `i` больше или равно 1
-    print(i)  # Выводит текущее значение `i` на экран
-    i = i - 2  # Уменьшает значение `i` на 2 в каждой итерации
+while i <= n:  # Loop runs as long as `i` is less than or equal to `n`
+    print("hello")  # Prints "hello"
+    i = i + 1  # Increments `i` by 1 in each iteration
 
 
-a = int(input())  # Запрашивает у пользователя целое число и сохраняет его в переменной `a`
-while a != 0:  # Цикл выполняется, пока введенное значение не равно 0
-    print("Another digit:")  # Выводит приглашение для ввода следующего числа
-    a = int(input())  # Запрашивает новое значение
+# Program 2: Prints numbers from 20 to 1, decreasing by 2
+i = 20  # Sets variable `i` to 20
+
+while i >= 1:  # Loop continues as long as `i` is greater than or equal to 1
+    print(i)  # Prints the current value of `i`
+    i = i - 2  # Decreases `i` by 2 in each iteration
 
 
-guess = input()  # Запрашивает строку ввода и сохраняет её в переменной `guess`
-password = "QWERTY"  # Устанавливает пароль как "QWERTY"
-while guess != password:  # Цикл выполняется, пока введенное значение не совпадает с паролем
-    print("Another try:")  # Выводит приглашение для повторной попытки
-    guess = input()  # Запрашивает новый ввод
-print("Welcome in")  # Выводит сообщение о входе, если пароль угадан
+# Program 3: Asks the user for input until they enter 0
+a = int(input())  # Requests an integer from the user and stores it in `a`
+
+while a != 0:  # Loop runs as long as `a` is not equal to 0
+    print("Another digit:")  # Asks for another number
+    a = int(input())  # Requests a new number
 
 
+# Program 4: Asks for a password and keeps prompting until the correct one is entered
+guess = input()  # Requests a string input from the user
+password = "QWERTY"  # Sets the correct password
 
-guess = input()  # Запрашивает строку ввода и сохраняет её в переменной `guess`
-password = "QWERTY"  # Устанавливает пароль как "QWERTY"
-count = 1  # Инициализирует счетчик попыток значением 1
-while guess != password:  # Цикл выполняется, пока введенное значение не совпадает с паролем
-    print("Another try:")  # Выводит приглашение для повторной попытки
-    count = count + 1  # Увеличивает счетчик попыток
-    guess = input()  # Запрашивает новый ввод
-print(f"Welcome in, you tried to get in {count} times")  # Выводит сообщение о входе
+while guess != password:  # Loop continues until `guess` matches `password`
+    print("Another try:")  # Asks the user to try again
+    guess = input()  # Requests new input
 
-
+print("Welcome in")  # Prints welcome message when the correct password is entered
 
 
-a = [1, 2, 3] * 5  # Создает список с последовательностью [1, 2, 3], повторенной 5 раз
-print(a)  # Выводит весь список
+# Program 5: Same as above but counts the number of attempts
+guess = input()  # Requests a string input from the user
+password = "QWERTY"  # Sets the correct password
+count = 1  # Initializes attempt counter
 
-while 3 in a:  # Цикл выполняется, пока в списке есть число 3
-    a.remove(3)  # Удаляет первое вхождение числа 3 из списка
-    print(a)  # Выводит обновленный список после каждой операции удаления
+while guess != password:  # Loop continues until `guess` matches `password`
+    print("Another try:")  # Prompts user to retry
+    count = count + 1  # Increments attempt counter
+    guess = input()  # Requests new input
 
-
-
-s = "hello"  # Устанавливает строку `s` равной "hello"
-while len(s) > 0:  # Цикл выполняется, пока длина строки `s` больше 0
-    print(s[0], s[1:])  # Выводит первый символ и оставшуюся часть строки
-    s = s[1:]  # Удаляет первый символ из строки
+print(f"Welcome in, you tried to get in {count} times")  # Prints attempt count when successful
 
 
+# Program 6: Creates a repeated list and removes all occurrences of 3
+a = [1, 2, 3] * 5  # Creates a list repeating [1, 2, 3] five times
+print(a)  # Prints the list
 
-s = "%&/rfgDRDC49puf4823g"  # Устанавливает строку с набором символов разного типа
-while len(s) > 0:  # Цикл выполняется, пока длина строки `s` больше 0
-    letter = s[0]  # Извлекает первый символ строки
-    if "a" <= letter <= "z":  # Проверяет, является ли символ строчной буквой
-        print(letter, "small")  # Выводит букву и сообщение "маленькая"
-    elif "A" <= letter <= "Z":  # Проверяет, является ли символ заглавной буквой
-        print(letter, "big")  # Выводит букву и сообщение "большая"
-    elif letter.isdigit():  # Проверяет, является ли символ цифрой
-        print(letter, "digit")  # Выводит цифру и сообщение "цифра"
-    else:  # Если символ не буква и не цифра
-        print(letter, "is symbol")  # Выводит символ и сообщение "это символ"
-    s = s[1:]  # Удаляет первый символ из строки
+while 3 in a:  # Loop continues while 3 is present in the list
+    a.remove(3)  # Removes the first occurrence of 3
+    print(a)  # Prints updated list after each removal
 
 
+# Program 7: Removes characters from a string one by one
+s = "hello"  # Defines a string `s`
 
-x = int(input())  # Запрашивает у пользователя целое число и сохраняет его в переменной `x`
-amount = 0  # Инициализирует счетчик общего количества цифр
-amount2 = 0  # Инициализирует счетчик количества четных цифр
-s = 0  # Переменная для суммы всех цифр
-mul = 1  # Переменная для произведения всех цифр
-max = 0  # Переменная для хранения максимальной цифры
-minim = 9  # Переменная для хранения минимальной цифры
-
-while x > 0:  # Цикл выполняется, пока число `x` больше 0
-    last = x % 10  # Извлекает последнюю цифру числа `x`
-    amount = amount + 1  # Увеличивает счетчик общего количества цифр
-    if last % 2 == 0:  # Проверяет, является ли цифра четной
-        amount2 += 1  # Увеличивает счетчик количества четных цифр
-    s = s + last  # Добавляет цифру к общей сумме
-    mul = mul * last  # Умножает цифру на общее произведение
-    if last > max:  # Проверяет, больше ли текущая цифра, чем `max`
-        max = last  # Обновляет максимальную цифру
-    if last < minim:  # Проверяет, меньше ли текущая цифра, чем `minim`
-        minim = last  # Обновляет минимальную цифру
-    x = x // 10  # Удаляет последнюю цифру из числа `x`
-
-# Вывод результатов
-print(f"Total digit amount:{amount}")  # Общее количество цифр
-print(f"Total odd digits:{amount2}")  # Количество четных цифр
-print(f"Total of all digits:{s}")  # Сумма всех цифр
-print(f"Multiply of all digits:{mul}")  # Произведение всех цифр
-print(f"Max of all digits:{max}")  # Максимальная цифра
-print(f"Min of all digits:{minim}")  # Минимальная цифра
+while len(s) > 0:  # Loop runs as long as the string has characters
+    print(s[0], s[1:])  # Prints the first character and the rest of the string
+    s = s[1:]  # Removes the first character from `s`
 
 
+# Program 8: Categorizes characters in a string as uppercase, lowercase, digits, or symbols
+s = "%&/rfgDRDC49puf4823g"  # Defines a string with mixed characters
+
+while len(s) > 0:  # Loop runs as long as the string has characters
+    letter = s[0]  # Extracts the first character
+
+    if "a" <= letter <= "z":  # Checks if it's a lowercase letter
+        print(letter, "small")
+    elif "A" <= letter <= "Z":  # Checks if it's an uppercase letter
+        print(letter, "big")
+    elif letter.isdigit():  # Checks if it's a digit
+        print(letter, "digit")
+    else:  # If it's not a letter or digit, it must be a symbol
+        print(letter, "is symbol")
+
+    s = s[1:]  # Removes the first character from `s`
 
 
-x = int(input())  # Запрашивает у пользователя целое число и сохраняет его в переменной `x`
+# Program 9: Analyzes the digits of an input number
+x = int(input())  # Requests an integer from the user
 
-while x > 0:  # Цикл выполняется, пока число `x` больше 0
-    last = x % 5  # Находит остаток от деления числа `x` на 5
-    print(last)  # Выводит остаток
-    x = x // 5  # Удаляет последнюю "пятеричную цифру" из числа `x`
+amount = 0  # Counter for total digits
+amount2 = 0  # Counter for even digits
+s = 0  # Sum of all digits
+mul = 1  # Product of all digits
+max_digit = 0  # Maximum digit
+min_digit = 9  # Minimum digit
+
+while x > 0:  # Loop runs as long as `x` is greater than 0
+    last = x % 10  # Extracts the last digit
+    amount += 1  # Increments total digit count
+
+    if last % 2 == 0:  # Checks if the digit is even
+        amount2 += 1  # Increments even digit count
+
+    s += last  # Adds the digit to the sum
+    mul *= last  # Multiplies the digit to the product
+
+    if last > max_digit:  # Checks if the digit is the largest found
+        max_digit = last
+
+    if last < min_digit:  # Checks if the digit is the smallest found
+        min_digit = last
+
+    x = x // 10  # Removes the last digit from `x`
+
+# Prints the results
+print(f"Total digit amount: {amount}")
+print(f"Total even digits: {amount2}")
+print(f"Sum of all digits: {s}")
+print(f"Product of all digits: {mul}")
+print(f"Max digit: {max_digit}")
+print(f"Min digit: {min_digit}")
 
 
+# Program 10: Prints the remainder when a number is divided by 5 repeatedly
+x = int(input())  # Requests an integer from the user
 
-a = int(input())  # Запрашивает у пользователя первое целое число и сохраняет его в переменной `a`
-b = int(input())  # Запрашивает у пользователя второе целое число и сохраняет его в переменной `b`
-
-while a != b:  # Цикл выполняется, пока значения `a` и `b` не станут равными
-    if a > b:  # Если `a` больше `b`
-        a = a - b  # Вычитаем значение `b` из `a`
-    else:  # Если `b` больше или равно `a`
-        b = b - a  # Вычитаем значение `a` из `b`
-print(a)  # Когда цикл завершится, `a` (или `b`) будет содержать наибольший общий делитель (НОД)
+while x > 0:  # Loop continues while `x` is greater than 0
+    last = x % 5  # Finds the remainder when `x` is divided by 5
+    print(last)  # Prints the remainder
+    x = x // 5  # Removes the last "base-5 digit" from `x`
 
 
+# Program 11: Finds the greatest common divisor (GCD) using subtraction
+a = int(input())  # Requests the first number
+b = int(input())  # Requests the second number
 
-a, b = map(int, input().split())  # Запрашивает у пользователя два числа, разделенные пробелом, и сохраняет их в `a` и `b`
+while a != b:  # Loop continues until `a` equals `b`
+    if a > b:  # If `a` is greater, subtract `b` from `a`
+        a = a - b
+    else:  # If `b` is greater, subtract `a` from `b`
+        b = b - a
 
-while b > 0:  # Цикл выполняется, пока `b` больше 0
-    a, b = b, a % b  # Переставляет `a` на место `b`, а `b` заменяет остатком от деления `a` на `b`
-print(a)  # Когда цикл завершится, `a` будет содержать НОД
+print(a)  # Prints the greatest common divisor (GCD)
+
+
+# Program 12: Finds the greatest common divisor (GCD) using the Euclidean algorithm
+a, b = map(int, input().split())  # Requests two space-separated integers from the user
+
+while b > 0:  # Loop continues while `b` is greater than 0
+    a, b = b, a % b  # Replaces `a` with `b`, and `b` with `a % b`
+
+print(a)  # Prints the greatest common divisor (GCD)
