@@ -29,19 +29,19 @@ print(story)
 
 # Short version
 
-# Открываем файл и считываем весь текст
+# Open the file and read the entire text
 with open("story.txt", "r") as f:
     story = f.read()
 
-# Используем множество для извлечения слов между < и >
-# Ищем индекс символа ">", начиная с текущего символа "<"
+# Use a set to extract words between < and >
+# Find the index of the ">" character starting from the current "<" character
 words = {story[i:j+1] for i, char in enumerate(story) if char == "<" and (j := story.find(">", i)) != -1}
 
-# Собираем ответы пользователя для каждого слова
+# Collect user responses for each word
 answers = {word: input(f"Enter a word for {word}: ") for word in words}
 
-# Заменяем каждое слово на введенное пользователем
+# Replace each word with the user-provided input
 story = ''.join(answers.get(word, word) for word in (story.split('<')[0], *words))
 
-# Выводим итоговую строку после замен
+# Print the final string after replacements
 print(story)
