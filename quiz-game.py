@@ -1,6 +1,7 @@
-import time
-import random
+import time  # Importing the time module to track quiz duration
+import random  # Importing the random module to shuffle and select random questions
 
+# List of quiz questions with multiple-choice options
 questions = [
     {
         "prompt": "What is the capital of France?",
@@ -55,48 +56,48 @@ questions = [
 ]
 
 def run_quiz(questions):
-    score = 0
-    start_time = time.time()
+    """
+    Function to conduct a timed multiple-choice quiz.
+
+    Steps:
+    - Selects a random subset of questions.
+    - Asks each question and evaluates user answers.
+    - Tracks time taken and total score.
+    """
+
+    score = 0  # Initialize the score counter
+    start_time = time.time()  # Record the start time of the quiz
+
+    # Select half of the questions randomly to make the quiz shorter
     selected_questions = random.sample(questions, len(questions) // 2)
-    
+
+    # Iterate through each selected question
     for question in selected_questions:
-        print(question["prompt"])
-        for option in question["options"]:
+        print(question["prompt"])  # Print the question
+        for option in question["options"]:  # Print all multiple-choice options
             print(option)
+
+        # Get user input and convert to uppercase for case-insensitivity
         answer = input("Enter your answer (A, B, C, D): ").upper()
+
+        # Check if the answer is correct
         if answer == question['answer']:
             print("Correct!!\n")
-            score += 1
+            score += 1  # Increase score if the answer is correct
         else:
             print(f"Wrong, you IDIOT!! The correct answer is {question['answer']}\n")
-    end_time = time.time()
-    total_time = round(end_time - start_time, 2)
+
+    end_time = time.time()  # Record the end time of the quiz
+    total_time = round(end_time - start_time, 2)  # Calculate the total time taken
+
+    # If the user takes too long, print a warning
     if total_time >= 15:
-        print(f"You are to slow!! You finished it in: {total_time} seconds")
+        print(f"You are too slow!! You finished it in: {total_time} seconds")
     else:
-        print(f"Nice job!! You finished it in: {total_time} seconds") 
+        print(f"Nice job!! You finished it in: {total_time} seconds")
+
+    # Display the final score
     print(f"You got: {score} out of {len(questions) // 2} questions correct")
     
+# Run the quiz with the list of questions
 run_quiz(questions)
-
-
-
-# def run_quiz(questions):
-#     # Use `random.sample` to select half the questions randomly.
-#     selected_questions = random.sample(questions, len(questions) // 2)
-
-#     # Use a generator to iterate over the selected questions and calculate the score:
-#     score = sum(
-#         1 if (answer := input(
-#             f"{q['prompt']}\n" + "\n".join(q['options']) + "\nEnter your answer (A, B, C, D): ").upper()) == q['answer']
-#         else print(f"Wrong, you IDIOT!! The correct answer is {q['answer']}\n") or 0
-#         for q in selected_questions
-#     )
-#     # After the quiz ends, print the final score and time taken:
-#     print(f"\nYou got: {score} out of {len(selected_questions)} questions correct")  # Print the number of correct answers.
-#     print(f"Nice job! You finished it in: {round(time.time() - start_time, 2)} seconds")  # Print time elapsed.
-
-# # Start the timer before running the quiz.
-# start_time = time.time()  # Record the starting time.
-# run_quiz(questions)  # Call the `run_quiz` function with the list of questions.
-
